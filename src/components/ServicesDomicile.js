@@ -21,7 +21,7 @@ const ServicesDomicile = () => {
         return servicesDomicile.map(service =>
           <div key={service.idService} className='tile'>
             <h2>{service.title}</h2>
-            <Link to={`/services/${service.idService}`}><img src={service.img} alt=''/></Link>
+            <Link to={`/services/${service.idService}/${service.title}`}><img src={service.img} alt=''/></Link>
           </div>
         )
     }

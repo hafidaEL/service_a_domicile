@@ -1,10 +1,19 @@
 import React, {useEffect} from 'react';
 import {useParams, Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {fetchPersonnes, personnesSelector} from '../slices/personnes'
+import {fetchPersonnes, personnesSelector} from '../../slices/personnes'
+import {
+  Card,
+  Header,
+  Avatar,
+  Title,
+  Name,
+  Age,
+  City,
+} from '../Personne/Personne.styles'
 
 const ListePersonnes = () => {
-    let { id } = useParams();
+    let { id,title } = useParams();
     console.log("id param : ", id )
     const dispatch = useDispatch()
     const { personnes,loading, hasErrors } = useSelector(personnesSelector)
@@ -20,17 +29,27 @@ const ListePersonnes = () => {
     
         return personnes.map(personne =>
           <div key={personne.login.uuid} className='tile'>
-            <h2>{personne.name.first}</h2>
             <Link to={`/personne/${personne.login.uuid}`}>
-                <img src={personne.picture.large} alt='toto'/>
-            </Link>
+                <Card>
+                  <Header>
+                    <Avatar src={personne.picture.large} alt="" />
+
+                    <Title>
+                      <Name>{personne.name.first}</Name>
+                      <Age>{personne.dob.age} ans</Age>
+                    </Title>
+
+                    <City>{personne.location.city}</City>
+                  </Header>
+                </Card>
+            </Link> 
           </div>
         )
     }
 
     return (
         <section>
-          <h1>Personnes</h1>
+          <h1>{title}</h1>
           <div className='content'>
             {renderPersonnes()}
           </div>

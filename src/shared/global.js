@@ -1,3 +1,7 @@
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+
 html {
     background-color: #F86C29;
     color: #fff;
@@ -18,7 +22,7 @@ section {
   }
   
   img {
-   /* width: 300px; */
+    
   }
   
   .content {
@@ -31,3 +35,4 @@ section {
     text-align: center;
     padding: 10px;
   }
+  `;

@@ -37,22 +37,22 @@ const personnesWithIdService = (idService) => {
         case "1":
             console.log("coiffeurs");
             //coiffeurs
-            return fetch('https://randomuser.me/api/?results=9')
+            return fetch('https://randomuser.me/api/?results=12')
         case "2":
             //beauté
-            return fetch('https://randomuser.me/api/?results=9')
+            return fetch('https://randomuser.me/api/?results=12')
         case "3":
             //massage à domicile
-            return fetch('https://randomuser.me/api/?results=9')
+            return fetch('https://randomuser.me/api/?results=12')
         case "4":
             //ménage
-            return fetch('https://randomuser.me/api/?results=9')
+            return fetch('https://randomuser.me/api/?results=12')
         case "5":
             //garde d'enfants
-            return fetch('https://randomuser.me/api/?results=9')
+            return fetch('https://randomuser.me/api/?results=12')
         case "6":
             //coach sportif personnel
-            return fetch('https://randomuser.me/api/?results=10')
+            return fetch('https://randomuser.me/api/?results=12')
         default:
             break;
     }

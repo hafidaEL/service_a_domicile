@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom'
 
 import ServicesDomicile from './components/ServicesDomicile'
-import ListePersonnes from './components/ListePersonnes'
-import Personne from './components/Personne'
+import ListePersonnes from './components/ListePersonnes/ListePersonnes'
+import Personne from './components/Personne/Personne'
 
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
         <Router>
           <Switch>
               <Route path='/' component={ServicesDomicile} exact/>
-              <Route path='/services/:id' component={ListePersonnes} />
+              <Route path='/services/:id/:title' component={ListePersonnes} />
               <Route path='/personne/:uuid' component={Personne} />
           </Switch>
         </Router>
