@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import 'react-datepicker/dist/react-datepicker.css';
 
 import {
     Title,
@@ -22,6 +22,16 @@ import {
 
 import {personnesSelector} from '../../slices/personnes'
 
+const Input = ({onChange, placeholder, value, isSecure, id, onClick}) => (
+	<input
+		onChange={onChange}
+		placeholder={placeholder}
+		value={value}
+		isSecure={isSecure}
+		id={id}
+		onClick={onClick}
+	/>
+);
 
 const Personne = () => {
     let { uuid } = useParams();
@@ -49,10 +59,20 @@ const Personne = () => {
             </Content>
             <ContentReservation>
                 <Cv>
+                    <Title>
+                        Présentation : 
+                    </Title>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil est laborum sit voluptatibus optio ab earum magni officia et tempore, illum nam ut. Sed fugiat quod excepturi vitae nesciunt officiis.
                 </Cv>
                 <ReservationWrapper> 
-                    <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+                    <DatePicker
+                        customInput={<Input />} 
+                        selected={startDate} 
+                        onChange={date => setStartDate(date)}
+                        timeInputLabel="Time:"
+                        dateFormat="dd/MM/yyyy h:mm aa"
+                        showTimeInput 
+                    />
                     <Button> Réserver </Button>
                 </ReservationWrapper>
             </ContentReservation>

@@ -56,7 +56,8 @@ export const Avatar = styled.img`
 `;
 
 export const Title = styled.div`
-  margin-bottom: 5px;
+  color: black;
+  margin-bottom: 20px; 
 `;
 
 export const Name = styled.h2`
@@ -81,8 +82,8 @@ export const City = styled.p`
 export const ContentReservation = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  width: 70%;
+  width: 50%;
+  margin-left: 20px;
 `;
 
 export const Cv = styled.div`
