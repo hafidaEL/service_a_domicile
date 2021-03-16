@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { 
+    useParams,
+    useHistory,
+ } from 'react-router-dom'
 import DatePicker from "react-datepicker"
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -41,6 +44,13 @@ const Personne = () => {
 
     const personne = personnes.filter( p =>  p.login.uuid === uuid )[0]
     console.log("Personne personne : ", personne)
+
+    const history = useHistory();
+    const routeChange = () =>{ 
+        let path = `/reservation`; 
+        history.push(path);
+    }
+
     return (
        <Wrapper key={personne.login.uuid} color={'dark'}>
             <Content>
@@ -73,7 +83,7 @@ const Personne = () => {
                         dateFormat="dd/MM/yyyy h:mm aa"
                         showTimeInput 
                     />
-                    <Button> Réserver </Button>
+                    <Button onClick={routeChange}> Réserver </Button>
                 </ReservationWrapper>
             </ContentReservation>
         </Wrapper>
